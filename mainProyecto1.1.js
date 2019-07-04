@@ -11,10 +11,11 @@ function main() {
 
   function createSplashScreen() {
     var splashScreen = buildDom(`
-      <section>
+      <section class="pagina_inicio">
         <h1>Cutre Pang</h1>
-        <button>Start</button>
-        <input id="input_nombre" type="text">Ingrese su nombre: 
+        <h2>Ingrese su nombre:</h2>
+        <input id="input_nombre" type="text">
+        <button class="restart">Start Game</button>
       </section>  
     `);
 
@@ -28,16 +29,18 @@ function main() {
       var campoDeTexto = document.querySelector('#input_nombre');
       nombreJugador = campoDeTexto.value;
     }
+ 
+
 
     var gameScreen = buildDom(`
-    <section>
+    <section class="pagina_principal">
     <h1>CUTRE PANG</h1>
-    
+   
     <section class="canvas-container">
       <canvas></canvas>
     </section> 
     `);
-    
+
     var container = document.querySelector('.canvas-container');
     var canvasElement = document.querySelector('canvas');
     canvasElement.width = container.offsetWidth;
@@ -66,10 +69,17 @@ function main() {
   function createGameOverScreen() {
     let playerName = this.player.nombre;
     var gameOverScreen = buildDom(`
-      <section>
-        <h1>Game Over</h1>
-        <p>nombre ${this.player.nombre}</p>
-        <button>Restart</button>
+      <section class="pagina_final">
+        <h1 class="over">Game Over</h1>
+        <h2 class="risa1">JA, JA, JA,...</h2><h2><p class="jugador"> ${this.player.nombre}</p> Mejor suerte la proxima vez</h2>
+       
+      <h2 class="risa2">.....,AJ, AJ, AJ</h2><h2>
+      <h2 class="risa3">JA, JA, JA,...</h2><h2>
+      <h2>¿Quieres volver a jugar?</h2>
+      <button class="restart"t>Restart</button>
+      <h2 class="risa4">JA, JA, JA,...</h2><h2>
+      <h2 class="risa5">JA, JA, JA,...</h2><h2>
+      <h2 class="risa6">JA, JA, JA,...</h2><h2>
       </section>
     `);
 

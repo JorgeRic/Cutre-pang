@@ -9,7 +9,7 @@ function Enemy(canvas, randomY) {
   this.direction = -1;
   this.colores = ['red', 'white', 'yellow','blue','green']
   this.color = this.colores[getRandomInt(0,5)];
-  this.radio = getRandomInt(20,50);
+  this.radio = getRandomInt(20,80);
 }
 
 function getRandomInt(min, max) {
@@ -33,24 +33,3 @@ Enemy.prototype.draw = function() {
   this.ctx.closePath();
 }
 
-// function borrar() {
- 
-//   Enemy.removeEventListener("click", borrar, false );
-  
-//   setTimeout(function(){ var c=document.getElementById("canvas");
-//   var ctx=c.getContext("2d");
-//   ctx.clearRect(0,0,canvas.width,canvas.height); }, 0);
-//   }
-  
-//   function clear() {
-//   setTimeout(function(){ var c=document.getElementById("canvas");
-//   var ctx=c.getContext("2d");
-//   ctx.clearRect(0,0,canvas.width,canvas.height); }, 1500);
-//   }
-  
-//   var myVar = setInterval(Enemy, 2000);
-//   function Enemy(){
-//   Enemy();
-//   clear();
-//   Enemy.addEventListener("click", borrar, false);
-//   }

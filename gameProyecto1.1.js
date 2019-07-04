@@ -9,6 +9,7 @@ function Game(canvas, playerName) {
   this.onGameOver = null;
   this.count=0;
   this.playerName = playerName;
+  this.lives=3;
 }
 
 Game.prototype.startGame = function() {
