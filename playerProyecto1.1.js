@@ -6,6 +6,7 @@ function Player(canvas, nombre) {
   this.y = (this.canvas.height / 2) - this.height / 2;
   this.lives = 3;
   this.nombre = nombre;
+  this.score = 0;
 } 
 
 Player.prototype.move = function() {

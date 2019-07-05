@@ -49,7 +49,42 @@ h1 {
   text-align: center;
   text-shadow: 10px 5px 10px red;
   margin-top:5px;
+  color: yellow;
 }
+.titulo{
+  font-family: monospace;
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 10px 5px 10px red;
+  margin-top:-70px;
+  margin-bottom: 30px;
+  color:yellow;
+}
+#n_puntos{
+  font-size: 30px;
+  color: red;
+  text-align: center;
+  margin-left: -336px;
+  margin-top: -45px;
+}
+#n_vidas{
+  font-size: 30px;
+  color: red;
+  text-align: center;
+  margin-left: -336px;
+  margin-top: -45px;
+}
+.contenedor{
+  display: flex;
+  justify-content: space-around;
+}    
+.cuadro1{
+  align-items: flex-start;
+}
+.cuadro2{
+  align-items: flex-start;
+}
+
 #input_nombre{
   border: 5px inset red;
   width: 500px;
@@ -78,10 +113,22 @@ h2 {
   font-weight: 50;
   text-align: left;
   line-height: initial;
+  color: chocolate;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+
+
+.marcadores{
+  font-size: 25px;
+  font-family: fantasy;
+  font-weight: 100;
+  text-align: left;
+  line-height: initial;
   color: blue;
   margin-top: 5px;
   margin-left: 100px;
-
+  padding-top:15px;
 }
 .risa1{
   color: red;
@@ -133,7 +180,6 @@ p {
 }
 .jugador{
   color: red;
-
 }
 /* ---- layout ---- */
 #site-header {
@@ -149,11 +195,22 @@ p {
 #site-main {
   margin-bottom: 60px;
 }
+
+main {
+  overflow: hidden;
+}
+canvas{
+  opacity:0.9;
+  background-image: url('https://www.dogking.es/imagenes/cachorros/labrador-retriever/labrador-retriever_3000-01-01_1_1.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 .canvas-container {
-  height: 730px;;
-  width: 100vw;
-  
+  height: 100%;;
+  width: 100vw; 
   border-top: 5px solid red;
+  border-bottom: 5px solid red;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Ii8TfXPQ-ZQ0uIkdwfmiti65cNDMHhlQ3RPJBNzsSZLnb745');
   background-repeat: no-repeat;
   background-position: center center;

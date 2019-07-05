@@ -7,9 +7,12 @@ function Game(canvas, playerName) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
   this.onGameOver = null;
-  this.count=0;
+  this.contad_puntos=0;
   this.playerName = playerName;
   this.lives=3;
+  this.gameSong1 = new Audio('pang.mp3');
+  this.disparo = new Audio('disparo2.mp3');
+  this.vida = new Audio('vida.mp3')
 }
 
 Game.prototype.startGame = function() {
@@ -20,17 +23,20 @@ Game.prototype.startGame = function() {
       var randomY = Math.random() * this.canvas.height - 10;
       var newEnemy = new Enemy(this.canvas, randomY);
       this.enemies.push(newEnemy);
+
     }
-
-
     this.update();
     this.clear();
     this.draw();
     this.checkCollisions();
+
     if(!this.isGameOver) {
       requestAnimationFrame(loop)
+      this.gameSong1.play();
     } else {
       this.onGameOver();
+      this.gameSong1.pause();
+      this.gameSong1.currentTime = 0;
     }
   };
   loop();
@@ -38,9 +44,14 @@ Game.prototype.startGame = function() {
 
 Game.prototype.update = function() {
   this.player.move();
+
   this.enemies.forEach(function(enemy) {
     enemy.move();
   })
+  var marcador = document.querySelector('#n_vidas');
+  marcador.innerHTML = this.player.lives;
+  var puntos = document.querySelector('#n_puntos');
+  puntos.innerHTML = this.contad_puntos;
 }
 
 Game.prototype.clear = function() {
@@ -63,8 +74,10 @@ Game.prototype.mouseClickEvent = function (ejeX, ejeY) {
 
     if(collision){
       this.enemies.splice(i,1);
-      this.count = this.count + 1;
-		}
+      this.contad_puntos = this.contad_puntos + 1;
+      this.disparo.play();
+    }
+    
 	})
 }
 
@@ -79,12 +92,12 @@ Game.prototype.checkCollisions = function() {
     
 		if (wrong) {
       this.enemies.splice(index, 1);
-			this.player.lives --;
+      this.player.lives --;
+      this.vida.play()
 		}
       if(this.player.lives === 0) {
        this.isGameOver = true;
       }
-
 
     if (rightLeft && leftRight && bottomTop && topBottom) {
       this.enemies.splice(index, 1);
